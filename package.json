@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"firebase": "^9.22.1",
 		"svelte-spa-router": "^3.3.0"
 	}
 }

@@ -1,9 +1,10 @@
 <script>
 	import Button from "../components/Button.svelte";
+	import Title from "../components/Title.svelte";
 </script>
 
 <div>
-	eyo
+	<Title title="TUOD"/>
 	<Button label="Sign Up" route='/signup' />
 	<Button label="Log In" route='/login' />
 </div>

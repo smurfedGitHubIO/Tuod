@@ -1,1 +1,25 @@
-Sign Up
+<script>
+  let name = "";
+  let email = "";
+  let password = "";
+  const handleSubmit = () => {
+
+  }
+</script>
+
+<div>
+  Sign Up
+  <form>
+    <!-- svelte-ignore a11y-label-has-associated-control -->
+    <label>Name</label>
+    <input type="text" bind:value={name}/>
+    <!-- svelte-ignore a11y-label-has-associated-control -->
+    <label>Email</label>
+    <input type="email" bind:value={email}/>
+    <!-- svelte-ignore a11y-label-has-associated-control -->
+    <label>Password</label>
+    <input type="password" bind:value={password}/>
+    <button on:click={() => handleSubmit()}>Submit</button>
+  </form>
+  
+</div>
