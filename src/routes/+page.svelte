@@ -4,7 +4,6 @@
 	export let data;
 	(
 		async () => {
-			console.log(data.data.length);
 		}
 	)();
 </script>
@@ -13,5 +12,4 @@
 	<Title title="TUOD"/>
 	<Button label="Sign Up" route='/signup' />
 	<Button label="Log In" route='/login' />
-	{data.data[0]}
 </div>

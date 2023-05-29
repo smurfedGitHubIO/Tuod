@@ -1,8 +1,11 @@
 <script>
+  import {logIn} from '../../../server/routes/usersAPI'
+  import { authStore } from '../../../server/stores/stores';
+
   let email = "";
   let password = "";
-  const handleSubmit = () => {
-
+  const handleSubmit = async () => {
+    await logIn(email, password).then(val => val);
   }
 </script>
 

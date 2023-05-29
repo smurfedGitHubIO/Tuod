@@ -1,9 +1,13 @@
 <script>
+  import {signUp} from '../../../server/index'
+  export let data;
   let name = "";
   let email = "";
   let password = "";
-  const handleSubmit = () => {
-
+  const handleSubmit = async () => {
+    let wordsList = data.data.sort(() => Math.random() - 0.5);
+    console.log(name, email, password)
+    let response = await signUp(name, email, password, wordsList);
   }
 </script>
 
@@ -19,7 +23,7 @@
     <!-- svelte-ignore a11y-label-has-associated-control -->
     <label>Password</label>
     <input type="password" bind:value={password}/>
-    <button on:click={() => handleSubmit()}>Submit</button>
+    <button on:click={handleSubmit}>Submit</button>
   </form>
   
 </div>
