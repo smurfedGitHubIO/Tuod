@@ -2,7 +2,7 @@ import { authStore } from '../stores/stores'
 import { goto } from '$app/navigation';
 import { db, auth } from './firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 
 export const signUp = async (name, email, password, wordsList) => {
   await createUserWithEmailAndPassword(auth, email, password)
@@ -23,10 +23,11 @@ export const signUp = async (name, email, password, wordsList) => {
     });
 }
 
-export const logIn = (email, password) => {
+export const logIn = async (email, password) => {
+  
   return signInWithEmailAndPassword(auth, email, password)
-    .then(cred => {
-      console.log(cred.user.uid);
+    .then(async (cred) => {
+      console.log(cred);
       authStore.set(cred);
       goto('/dashboard');
       return '';
@@ -45,6 +46,13 @@ export const logOut = () => {
       console.log(err.message);
     });
 };
+
+export const updateAuthStore = async (authStore) => {
+  const val = doc(db, 'users', authStore.user.uid);
+  const valSnap = await getDoc(val);
+  authStore = valSnap.data();
+  return authStore;
+}
 
 export const updateUser = async () => {
 

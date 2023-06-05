@@ -4,7 +4,6 @@ import { doc, setDoc } from 'firebase/firestore'
 import { updateUser } from './usersAPI';
 
 export const getWordOfTheDay = async (authStore, wordsStore) => {
-  console.log(authStore, wordsStore)
   const currentDay = new Date().getDay();
   if (authStore.day != currentDay) {
     let currentUser = authStore;
