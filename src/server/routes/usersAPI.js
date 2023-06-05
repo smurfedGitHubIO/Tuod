@@ -5,7 +5,6 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { doc, setDoc } from 'firebase/firestore'
 
 export const signUp = async (name, email, password, wordsList) => {
-  console.log("a");
   await createUserWithEmailAndPassword(auth, email, password)
     .then(cred => {
       goto('/login')
@@ -27,6 +26,7 @@ export const signUp = async (name, email, password, wordsList) => {
 export const logIn = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password)
     .then(cred => {
+      console.log(cred.user.uid);
       authStore.set(cred);
       goto('/dashboard');
       return '';
@@ -45,3 +45,7 @@ export const logOut = () => {
       console.log(err.message);
     });
 };
+
+export const updateUser = async () => {
+
+}
