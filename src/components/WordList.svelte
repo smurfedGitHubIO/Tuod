@@ -15,8 +15,9 @@
 
 <div>
   {#if listOfWords.length != 0}
-    {listOfWords[0].word}
-    {listOfWords[0].definitions}
+    {#each listOfWords as currentWord}
+      <Word word={currentWord.word} definitions={currentWord.definitions}/>
+    {/each}
   {:else}
     Loading...
   {/if}
