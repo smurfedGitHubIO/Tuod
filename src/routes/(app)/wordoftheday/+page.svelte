@@ -6,15 +6,14 @@
   let word = '';
   (
     async () => {
-      console.log($authStore);
-      let uid = $authStore.user.uid;
-      let newAuthStore = await updateAuthStore($authStore);
-      newAuthStore['uid'] = uid;
-      let words = await getWords(newAuthStore);
-      authStore.update(x => newAuthStore);
-      console.log($authStore, "wah");
-      console.log($authStore.day, "neh");
-      console.log(words);
+      if ($authStore.user !== undefined) {
+        let uid = $authStore.user.uid;
+        let newAuthStore = await updateAuthStore($authStore);
+        newAuthStore['uid'] = uid;
+        authStore.update(x => newAuthStore);
+      }
+      let words = await getWords($authStore);
+      wordsStore.update(x => words);
       word = await getWordOfTheDay($authStore, $wordsStore);
     }
   )();
