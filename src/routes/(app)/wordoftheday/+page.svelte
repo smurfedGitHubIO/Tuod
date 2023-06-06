@@ -1,6 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
   import { getWordOfTheDay } from '../../../server/routes/wordoftheday'
+  import WordOfTheDay from "../../../components/WordOfTheDay.svelte";
   import { authStore, wordsStore } from '../../../server/stores/stores'
   let word = '';
   (
@@ -15,5 +16,5 @@
 </script>
 <div>
   <button on:click={handleBack}>Back</button>
-  {word}
+  <WordOfTheDay {word}/>
 </div>

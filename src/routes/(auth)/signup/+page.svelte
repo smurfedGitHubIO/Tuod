@@ -4,6 +4,7 @@
   let name = "";
   let email = "";
   let password = "";
+  console.log(data);
   const handleSubmit = async () => {
     let wordsList = data.data.sort(() => Math.random() - 0.5);
     console.log(name, email, password)
