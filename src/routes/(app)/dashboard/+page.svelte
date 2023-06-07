@@ -17,13 +17,38 @@
       wordsStore.update(x => words);
     }
   );
+
+  import { goto } from '$app/navigation';
+  const handleLogout = () => {
+    goto('/');
+  }
 </script>
 
+<div class="flex justify-between mx-3 my-4 db-nav">
+  <div class="flex items-center text-primary">
+    <div class="rounded mr-4">
+      <img src="./Logo.png" alt="profile" class="w-10 h-10" />
+    </div>
+    <div class="font-primary font-semibold text-header5">
+      Tuod
+    </div>
+  </div>
+  <div class="flex items-center text-primary">
+    <button on:click={() => handleLogout()}>Logout</button>
+  </div>
+</div>
 <div>
-  <div>
+  <div class="shadow hover:shadow-lg main-box text-center">
     <LinkButton label="Word of the Day" route='/wordoftheday'/>
   </div>
-  <div>
+  <div class="shadow hover:shadow-lg main-box text-center">
     <LinkButton label="Listahan ng mga salita" route='/words'/>
   </div>
 </div>
+
+<style>
+  .main-box {
+    padding: 25px;
+    margin: 10px 25px 10px 25px;
+  }
+</style>
