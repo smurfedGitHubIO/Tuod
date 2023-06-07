@@ -1,6 +1,5 @@
 <script>
   import { goto } from '$app/navigation';
-  import "../../app.css";
   const handleLogout = () => {
     goto('/');
   }

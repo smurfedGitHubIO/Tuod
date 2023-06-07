@@ -1,7 +1,6 @@
 <script>
 	import Button from "../components/Button.svelte";
 	import Title from "../components/Title.svelte";
-	export let data;
 	(
 		async () => {
 		}

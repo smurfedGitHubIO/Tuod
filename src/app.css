@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Locks scroll */
+.scroll-lock {
+  overflow-y: hidden;
+}
