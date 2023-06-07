@@ -16,5 +16,10 @@
 </script>
 <div>
   <button on:click={handleBack}>Back</button>
-  <WordOfTheDay word={word.word} definition={word.definitions}/>
+  {#if word !== ''}
+    <WordOfTheDay word={word.word} definition={word.definitions}/>
+  {:else}
+    Loading...
+  {/if}
+  
 </div>
