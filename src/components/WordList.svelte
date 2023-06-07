@@ -3,12 +3,8 @@
   import { authStore, wordsStore } from "../server/stores/stores";
   let listOfWords = [];
   (() => {
-    for(let i=0; i<$wordsStore.length; i++){
-      if(i <= $authStore.index) {
-        listOfWords.push($wordsStore[i]);
-      } else {
-        break;
-      }
+    for(let i=$authStore.index; i>$authStore.index-10 && i >= 0; i--){
+      listOfWords.push($wordsStore[i]);
     }
   })();
 </script>

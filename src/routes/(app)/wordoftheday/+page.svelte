@@ -16,5 +16,5 @@
 </script>
 <div>
   <button on:click={handleBack}>Back</button>
-  <WordOfTheDay {word}/>
+  <WordOfTheDay word={word.word} definition={word.definitions}/>
 </div>

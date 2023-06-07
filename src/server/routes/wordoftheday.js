@@ -14,8 +14,8 @@ export const getWordOfTheDay = async (authStore, wordsStore) => {
     };
     console.log(currentUser, "weh");
     let unusedVar = await updateUser(currentUser).then(val => val);
-    return wordsStore[currentUser.index].word;
+    return wordsStore[currentUser.index];
   } else {
-    return wordsStore[authStore.index].word;
+    return wordsStore[authStore.index];
   }
 }

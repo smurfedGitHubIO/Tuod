@@ -1,11 +1,11 @@
 <script>
   export let word;
-  let description = "wah";
+  export let definition;
 </script>
 
 <div>
   <div>{word}</div>
   <div>
-    {description}
+    {definition}
   </div>
 </div>
