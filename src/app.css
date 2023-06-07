@@ -1,6 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #DCC2B1;
+  --secondary: #e32544;
+  --tertiary: #e4950e;
+  --accent-pink: #ed6e83;
+  --accent-blue: #4F8CE2;
+  --accent-green: #85593B;
+  --accent-yellow: #FFA200;
+  --accent-violet: #8E82F6;
+  --agray-700: #3E3E3E;
+  --agray-600: #6A6A6A;
+  --agray-500: #919191;
+  --agray-400: #E3E3E3;
+  --agray-300: #F5F5F5;
+  --agray-200: #F5F5F5;
+  --agray-100: #F8F8F8;
+  --agray-50: #FAFAFA;
+  --gdark: #262626;
+}
+
 /* Locks scroll */
 .scroll-lock {
   overflow-y: hidden;

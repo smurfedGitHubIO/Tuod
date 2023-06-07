@@ -1,6 +1,12 @@
 <script>
   import "../app.css";
 </script>
-<div class="flex flex-col h-screen m-auto max-w-md">
+<div class="container">
   <slot />
 </div>
+
+<style>
+  .container {
+    padding-top: 25px;
+  }
+</style>
