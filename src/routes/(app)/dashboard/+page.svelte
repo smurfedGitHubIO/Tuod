@@ -1,8 +1,8 @@
 <script>
   import { getWords } from '../../../server/routes/words'
+  import {getWordOfTheDay} from '../../../server/routes/wordoftheday'
   import { updateAuthStore } from '../../../server/routes/usersAPI';
   import { authStore, wordsStore } from "../../../server/stores/stores";
-  import Word from "../../../components/Word.svelte";
   import {onMount} from 'svelte';
   let word = '';
   let listOfWords = [];
@@ -16,12 +16,10 @@
       }
       let words = await getWords($authStore).then(val => val);
       wordsStore.update(x => words);
-      word = $wordsStore[$authStore.index];//await getWordOfTheDay($authStore, $wordsStore);
+      word = await getWordOfTheDay($authStore, $wordsStore);
       for(let i=$authStore.index; i>=$authStore.index-10 && i >= 0; i--){
-        //listOfWords.push(words[i]);
         listOfWords = [...listOfWords, words[i]];
       }
-      console.log(listOfWords.length, "wah")
     }
   );
 

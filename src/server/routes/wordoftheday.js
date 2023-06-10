@@ -5,6 +5,7 @@ import { updateUser } from './usersAPI';
 
 export const getWordOfTheDay = async (authStore, wordsStore) => {
   const currentDay = new Date().getDate();
+  console.log(authStore.day, currentDay);
   if (authStore.day != currentDay) {
     let currentUser = authStore;
     currentUser = {
