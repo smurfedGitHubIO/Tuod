@@ -15,18 +15,18 @@
         authStore.update(x => newAuthStore);
       }
       let words = await getWords($authStore).then(val => val);
-      words.sort(() => Math.random() - 0.5);
-      blindWordStore.update(words[0]);
-      words = words.filter((val, ind) => {
-        if(ind != 0){
-          return val;
-        }
-      });
       wordsStore.update(x => words);
       word = await getWordOfTheDay($authStore, $wordsStore);
       for(let i=$authStore.index; i>=$authStore.index-10 && i >= 0; i--){
         listOfWords = [...listOfWords, words[i]];
       }
+      listOfWords.sort(() => Math.random() - 0.5);
+      blindWordStore.set(listOfWords[0]);
+      listOfWords = listOfWords.filter((val, ind) => {
+        if(ind != 0){
+          return val;
+        }
+      });
     }
   );
 
@@ -64,6 +64,19 @@
               - {def}
             </div>
           {/each}
+      </div>
+    {:else}
+      Loading...
+    {/if}
+    
+  </div>
+  <div class="text-center main-box">
+    {#if listOfWords.length !== 0}
+      <div class="mx-4 mb-6 text-2xl font-bold text-gdark font-sans">
+        Blind Word
+      </div>
+      <div>
+        {$blindWordStore.word}
       </div>
     {:else}
       Loading...

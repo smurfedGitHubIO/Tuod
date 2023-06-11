@@ -4,6 +4,3 @@
 <div>
   Anki
 </div>
-<style>
-
-</style>
