@@ -2,7 +2,7 @@
   import { getWords } from '../../../server/routes/words'
   import {getWordOfTheDay} from '../../../server/routes/wordoftheday'
   import { updateAuthStore } from '../../../server/routes/usersAPI';
-  import { authStore, wordsStore } from "../../../server/stores/stores";
+  import { authStore, blindWordStore, wordsStore } from "../../../server/stores/stores";
   import {onMount} from 'svelte';
   let word = '';
   let listOfWords = [];
@@ -15,6 +15,13 @@
         authStore.update(x => newAuthStore);
       }
       let words = await getWords($authStore).then(val => val);
+      words.sort(() => Math.random() - 0.5);
+      blindWordStore.update(words[0]);
+      words = words.filter((val, ind) => {
+        if(ind != 0){
+          return val;
+        }
+      });
       wordsStore.update(x => words);
       word = await getWordOfTheDay($authStore, $wordsStore);
       for(let i=$authStore.index; i>=$authStore.index-10 && i >= 0; i--){
