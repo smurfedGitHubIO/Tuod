@@ -10,15 +10,14 @@
     Filipino Fake News Detector
   </div>
   <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top result">Trustworthy</h1>
+    <h1 class="w3-jumbo w3-animate-top result">Might be Fake</h1>
     <hr class="w3-border-grey" style="margin:auto;width:40%">
-    <p class="w3-large w3-center">The highlighted text is NOT fake according to our model.</p>
+    <p class="w3-large w3-center">The highlighted text may be fake according to our model. Research more about it to verify.</p>
   </div>
   <div class="w3-display-bottomleft w3-padding-large">
     Project by Frongoso - Devilleres - Samonte - Sarmiento
   </div>
 </div>
-
 {#if isBeta}
   <p>This is {isBeta}!</p>
 {:else}
