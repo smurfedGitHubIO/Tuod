@@ -8,8 +8,8 @@
   const svm_text = (svm == '1') ? "The highlighted text may be fake according to the SVM model. Research more about it to verify." : "The highlighted text is NOT fake according to the SVM model.";
   const logreg_text = (logistic_regression == '1') ? "The highlighted text may be fake according to the logistic regression model. Research more about it to verify." : "The highlighted text is NOT fake according to the logistic regression model.";
   const mnb_fill_color = "#32BA7C";
-  const svm_fill_color = (svm == '0') ? "#F15249" : "#32BA7C";
-  const logreg_fill_color = (logistic_regression == '0') ? "#F15249" : "#32BA7C";
+  const svm_fill_color = (svm == '1') ? "#F15249" : "#32BA7C";
+  const logreg_fill_color = (logistic_regression == '1') ? "#F15249" : "#32BA7C";
 </script>
 
 <div class="flex flex-col bg-agray-50">
