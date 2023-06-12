@@ -3,6 +3,9 @@
   const isBeta = $page.url.searchParams.get("svm");
   const isAlpha = $page.url.searchParams.get("logistic_regression");
 </script>
+<svelte:head>
+    <title>Faker Extension</title> 
+</svelte:head>
 <div class="flex flex-col bg-agray-50">
    <div class="mt-10 text-gdark text-center text-4xl font-semibold">
       Filipino Fake News Detector

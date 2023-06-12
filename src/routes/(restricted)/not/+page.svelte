@@ -11,7 +11,9 @@
   const svm_fill_color = (svm == '1') ? "#F15249" : "#32BA7C";
   const logreg_fill_color = (logistic_regression == '1') ? "#F15249" : "#32BA7C";
 </script>
-
+<svelte:head>
+    <title>Faker Extension</title> 
+</svelte:head>
 <div class="flex flex-col bg-agray-50">
   <div class="mt-10 text-gdark text-center text-4xl font-semibold">
      Filipino Fake News Detector
