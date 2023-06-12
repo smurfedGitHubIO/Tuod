@@ -1,42 +1,124 @@
 <script>
   import { page } from '$app/stores';
-  import "../w3.css";
-  const isBeta = $page.url.searchParams.get("svm");
-  const isAlpha = $page.url.searchParams.get("logistic_regression");
+  const svm = $page.url.searchParams.get("svm");
+  const logistic_regression = $page.url.searchParams.get("logistic_regression");
+  const mnb_icon = 'check.png';
+  const svm_icon = (svm === '1') ? "check.png" : "cross.png";
+  const logreg_icon = (logistic_regression == '1') ? "check.png" : "cross.png";
+  const svm_text = (svm == '0') ? "The highlighted text may be fake according to our model. Research more about it to verify." : "The highlighted text is NOT fake according to our model.";
+  const logreg_text = (logistic_regression == '0') ? "The highlighted text may be fake according to our model. Research more about it to verify." : "The highlighted text is NOT fake according to our model.";
+  const mnb_fill_color = "#32BA7C";
+  const svm_fill_color = (svm == '0') ? "#F15249" : "#32BA7C";
+  const logreg_fill_color = (logistic_regression == '0') ? "#F15249" : "#32BA7C";
 </script>
 
-<div class="main-container">
-  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      Filipino Fake News Detector
-    </div>
-    <div class="w3-display-middle">
-      <h1 class="w3-jumbo w3-animate-top result">Trustworthy</h1>
-      <hr class="w3-border-grey" style="margin:auto;width:40%">
-      <p class="w3-large w3-center">The highlighted text is NOT fake according to our model.</p>
-    </div>
-    <div class="w3-display-bottomleft w3-padding-large">
-      Project by Frongoso - Devilleres - Samonte - Sarmiento
-    </div>
+<div class="flex flex-col bg-agray-50">
+  <div class="mt-10 text-gdark text-center text-4xl font-semibold">
+     Filipino Fake News Detector
+     <div class="text-gdark text-center text-base font-thin">
+        Project by Frongoso - Devilleres - Samonte - Sarmiento
+     </div>
+  </div>
+  <div class="bg-gray-100 my-72 relative">
+     <div>
+      <div class="w-96 mx-auto" style="scroll-snap-type: x mandatory;">
+        <!-- first -->
+        <div class="">
+           <input class="sr-only peer" type="radio" name="carousel" id="carousel-1" checked />
+           <!-- content #1 -->
+           <div
+              class="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
+              <img class="rounded-t-lg w-96 h-56" src={mnb_icon} alt="" />
+              <div class="py-4 px-8">
+                 <h1 class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-2xl tracking-tight text-center">
+                   Multinomial Naive Bayes Classifier
+                 </h1>
+                 <p class="hover:cursor-pointer py-3 text-gray-600 leading-6 text-justify">
+                  The highlighted text is NOT fake according to our model.
+                 </p>
+              </div>
+              <!-- controls -->
+              <div class="absolute top-1/2 w-full flex justify-between z-20">
+                <label for="carousel-3" class="inline-block text-blue-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" fill={mnb_fill_color} d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+                  </svg>
+               </label>
+               <label for="carousel-2" class="inline-block text-blue-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" fill={mnb_fill_color} d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                  </svg>
+               </label>
+              </div>
+           </div>
+        </div>
+        <!-- second -->
+        <div class="">
+           <input class="sr-only peer" type="radio" name="carousel" id="carousel-2" />
+           <!-- content #2 -->
+           <div
+              class="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
+              <img class="rounded-t-lg w-96 h-56" src={svm_icon} alt="" />
+              <div class="py-4 px-8">
+                 <h1 class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-2xl tracking-tight text-center">
+                    SVM
+                 </h1>
+                 <p class="hover:cursor-pointer py-3 text-gray-600 leading-6 text-justify">
+                   {svm_text}
+                 </p>
+              </div>
+              <!-- controls -->
+              <div class="absolute top-1/2 w-full flex justify-between z-20">
+                 <label for="carousel-1" class="inline-block text-blue-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                       <path fill-rule="evenodd" fill={svm_fill_color} d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+                    </svg>
+                 </label>
+                 <label for="carousel-3" class="inline-block text-blue-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                       <path fill-rule="evenodd" fill={svm_fill_color} d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                 </label>
+              </div>
+           </div>
+        </div>
+        <!-- three -->
+        <div class="">
+           <input class="sr-only peer" type="radio" name="carousel" id="carousel-3" />
+           <!-- content #3 -->
+           <div
+              class="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
+              <img class="rounded-t-lg w-96 h-56" src={logreg_icon} alt="" />
+              <div class="py-4 px-8">
+                 <h1 class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-2xl tracking-tight text-center">
+                    Logistic Regression
+                 </h1>
+                 <p class="hover:cursor-pointer py-3 text-gray-600 leading-6 text-justify">
+                   {logreg_text}
+                 </p>
+              </div>
+              <!-- controls -->
+              <div class="absolute top-1/2 w-full flex justify-between z-20">
+                <label for="carousel-2" class="inline-block text-blue-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" fill={logreg_fill_color} d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+                  </svg>
+               </label>
+               <label for="carousel-1" class="inline-block text-blue-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" fill={logreg_fill_color} d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                  </svg>
+               </label>
+              </div>
+           </div>
+        </div>
+     </div>
+     </div>
+  </div>
+  <div class="mt-4 text-gdark text-center text-lg">
+     All rights reserved.
+  </div>
+  <div class="mb-2 text-gdark text-center text-xs font-thin">
+     <a href="https://github.com/H3XoRuSH/Filipino-Fake-News-Detector" class="px-2">Extension Source Code</a>
   </div>
 </div>
-{#if isBeta}
-  <p>This is {isBeta}!</p>
-{:else}
-  <p>This is not beta.</p>
-{/if}
-
-<style>
-  .main-container,h1 {font-family: "Raleway", sans-serif}
-  .main-container {height: 100%}
-.bgimg {
-  background-color: black;
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
-
-.result {
-  text-align: center;
-}
-</style>
