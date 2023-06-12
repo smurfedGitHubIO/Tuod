@@ -25,7 +25,7 @@
                       Invalid
                      </h1>
                      <p class="hover:cursor-pointer py-3 text-gray-600 leading-6 text-justify">
-                      Please make sure that the highlighted text is at least 150 words.
+                      Please make sure that the highlighted text is at least 100 words.
                      </p>
                   </div>
                   
